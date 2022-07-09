@@ -1,0 +1,195 @@
+.book-detail {
+  @include responsive(xxl) {
+    background-color: var(--background-main);
+    padding-bottom: 48px;
+
+    &-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 60px;
+      color: var(--primary);
+    }
+
+    .content {
+      width: 100%;
+      min-height: 70vh;
+
+      display: flex;
+      padding: 24px 120px;
+
+      &__left-side {
+        width: 50%;
+        background-color: var(--white);
+        border-radius: 4px;
+
+        margin-right: 24px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__thumbnail {
+          min-width: 220px;
+          max-width: 260px;
+          transition: all 0.25s;
+
+          &:hover {
+            transform: scale(1.4);
+            transition: all 0.25s;
+          }
+        }
+      }
+
+      &__right-side {
+        width: 50%;
+
+        &__sale {
+          display: inline;
+
+          padding: 0 8px;
+          border-radius: 4px;
+
+          text-transform: uppercase;
+          background-color: var(--primary);
+          @include font(var(--white), 14px, bold);
+        }
+
+        &__title {
+          @include font(var(--black-dark-3), 28px, bold);
+
+          text-transform: uppercase;
+          margin: 4px 0;
+        }
+
+        &__price {
+          @include font(var(--primary), 16px, bold);
+          margin-bottom: 8px;
+        }
+
+        &__subtitle {
+          @include font(var(--black-dark-3), 14px, 400);
+          margin-bottom: 8px;
+
+          .authors {
+            display: inline;
+            margin-left: 4px;
+            font-weight: 700;
+          }
+        }
+
+        &__authors {
+          @include font(var(--black-dark-3), 14px, 400);
+          margin-bottom: 8px;
+        }
+
+        &__description {
+          @include font(var(--black-dark-3), 16px, 300);
+          margin-top: 24px;
+          margin-bottom: 16px;
+
+          text-align: justify;
+
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 8;
+          -webkit-box-orient: vertical;
+        }
+
+        &__seemore {
+          display: block;
+          margin-bottom: 40px;
+
+          @include font(var(--primary), 16px, 300);
+        }
+
+        &__information {
+          .information-item {
+            display: flex;
+            width: 100%;
+
+            margin-bottom: 8px;
+
+            .label {
+              width: 50%;
+
+              @include font(var(--black-dark-3), 16px, 400);
+
+              &::after {
+                content: ": ";
+              }
+            }
+
+            .value {
+              width: 50%;
+              text-align: right;
+
+              @include font(var(--black-dark-3), 16px, bold);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive(lg) {
+    width: 100%;
+
+    .content {
+      padding: 24px 36px;
+
+      &__left-side {
+        max-height: 560px;
+
+        &__thumbnail {
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      &__right-side {
+        &__title {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  @include responsive(sm) {
+    width: 100%;
+
+    .content {
+      padding: 24px 16px;
+      flex-direction: column;
+
+      &__left-side {
+        width: 100%;
+        max-height: 360px;
+
+        margin-bottom: 24px;
+
+        &__thumbnail {
+          min-width: 160px;
+          max-width: 200px;
+
+          padding: 24px 0;
+
+          &:hover {
+            transform: scale(1.15);
+          }
+        }
+      }
+
+      &__right-side {
+        width: 100%;
+
+        &__title {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

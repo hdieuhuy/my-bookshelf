@@ -1,0 +1,43 @@
+.left-side {
+  @include responsive(xxl) {
+    width: 30%;
+    margin-right: 20px;
+
+    &__title {
+      @include font(var(--black-dark-3), 24px, bold);
+      margin-bottom: 16px;
+    }
+
+    &__add-new-book {
+      margin-bottom: 16px;
+    }
+
+    &__search,
+    &__filter {
+      &__title {
+        @include font(var(--black-dark-3), 20px, 700);
+        margin-bottom: 8px;
+      }
+    }
+
+    &__search {
+      margin-bottom: 16px;
+    }
+
+    &__filter {
+      &__wrapper {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  @include responsive(lg) {
+    margin-right: 16px;
+  }
+
+  @include responsive(sm) {
+    width: 100%;
+    margin-right: 8px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,23 @@
+@import "./LeftSide/LeftSide.scss";
+@import "./RightSide/RightSide.scss";
+
+.container {
+  @include responsive(xxl) {
+    width: 100%;
+    min-height: calc(100vh - 240px - 24px);
+
+    display: flex;
+    padding: 0 120px;
+    padding-bottom: 48px;
+  }
+
+  @include responsive(lg) {
+    padding: 0 32px;
+  }
+
+  @include responsive(sm) {
+    padding: 0 16px;
+
+    flex-direction: column;
+  }
+}

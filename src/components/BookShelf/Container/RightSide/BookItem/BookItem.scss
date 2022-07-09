@@ -1,0 +1,134 @@
+.book-item {
+  display: flex;
+  flex-direction: column;
+
+  &__thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: var(--white);
+
+    min-width: 240px;
+    min-height: 240px;
+
+    position: relative;
+    transition: all 0.25s;
+
+    &__sale {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+
+      padding: 4px 8px;
+      border-radius: 4px;
+
+      text-transform: uppercase;
+      background-color: var(--primary);
+      @include font(var(--white), 14px, bold);
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.2);
+        transition: all 0.25s;
+      }
+    }
+
+    img {
+      transition: all 0.25s;
+
+      max-width: 128px;
+      max-height: 166px;
+    }
+  }
+
+  &__actions {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__item {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+
+      font-size: 16px;
+
+      padding: 4px;
+      margin-right: 8px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+      border: 1px solid var(--black-dark-3);
+      transition: all 0.2s;
+
+      &:hover {
+        transform: translateY(-8px);
+        transition: all 0.2s;
+      }
+    }
+  }
+
+  &:hover {
+    .book-item__actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 1;
+      height: 36px;
+      visibility: visible;
+      transition: all 0.25s;
+
+      &__item {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+
+        font-size: 16px;
+
+        padding: 4px;
+        margin-right: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+        border: 1px solid var(--black-dark-3);
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    @include font(var(--black-dark-3), 16px, bold);
+  }
+
+  &__authors {
+    margin-bottom: 8px;
+    @include font(var(--black-dark-3), 14px, 500);
+  }
+
+  &__price {
+    @include font(var(--black-dark-3), 12px, 500);
+  }
+}

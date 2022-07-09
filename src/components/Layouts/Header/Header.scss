@@ -1,0 +1,33 @@
+.header {
+  @include responsive(xxl) {
+    width: 100%;
+    min-height: 240px;
+    margin-bottom: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+      text-transform: uppercase;
+
+      @include font(var(--primary), 60px);
+
+      div {
+        display: flex;
+        align-items: center;
+
+        svg {
+          cursor: pointer;
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+
+  @include responsive(sm) {
+    &__title {
+      font-size: 28px;
+    }
+  }
+}

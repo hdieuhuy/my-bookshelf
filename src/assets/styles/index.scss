@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+html,
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.ant-btn.ant-btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+@import "./colors.scss";
+@import "./utils.scss";
+
+@import "src/components/Modals/Modals.scss";
+@import "src/components/BookShelf/BookShelf.scss";
+@import "src/components/Layouts/Header/Header.scss";
+@import "src/components/BookDetail/BookDetail.scss";
