@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import {
   Form,
@@ -25,9 +24,10 @@ const ModalAddUpdateBook = ({ ...rest }) => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
 
-  const _defaultValue = rest?.defaultValue || {};
-
   const [authors, setAuthors] = useState([]);
+  const [newAuthor, setNewAuthor] = useState("");
+
+  const _defaultValue = useMemo(() => rest?.defaultValue, [rest.defaultValue]);
 
   /**
    * Set default value if is mode update
@@ -95,9 +95,12 @@ const ModalAddUpdateBook = ({ ...rest }) => {
     dispatch(updateBook(_values));
   };
 
+  const handleChangeValueAuthor = (e) => setNewAuthor(e?.target?.value);
+
   const handleAddNewAuthor = (e) => {
     const value = e?.target?.value;
 
+    setNewAuthor("");
     setAuthors((prev) => [...prev, value]);
   };
 
@@ -152,8 +155,10 @@ const ModalAddUpdateBook = ({ ...rest }) => {
 
         <Form.Item name="authors" label="Authors">
           <Input
+            value={newAuthor}
             placeholder="Enter authors"
             onPressEnter={handleAddNewAuthor}
+            onChange={handleChangeValueAuthor}
           />
 
           <div className="authors">
